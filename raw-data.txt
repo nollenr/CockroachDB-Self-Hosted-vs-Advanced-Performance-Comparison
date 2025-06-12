@@ -1,0 +1,413 @@
+
+Advanced Cluster: warehouses and concurrency 750
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__total
+  600.0s        0           9434           15.7    399.8    167.8   1610.6   5100.3   7784.6  delivery
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__total
+  600.0s        0          92706          154.5    358.4     88.1   1476.4   6442.5  24696.1  newOrder
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__total
+  600.0s        0           9426           15.7    116.5     27.3    637.5   2684.4   6710.9  orderStatus
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__total
+  600.0s        0          94383          157.3    455.0     54.5   2952.8   9126.8  22548.6  payment
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__total
+  600.0s        0           9366           15.6    236.8     50.3   1208.0   5100.3  12348.0  stockLevel
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__result
+  600.0s        0         215315          358.9    386.7     71.3   1879.0   7784.6  24696.1
+Audit check 9.2.1.7: SKIP: not enough delivery transactions to be statistically significant
+Audit check 9.2.2.5.1: PASS
+Audit check 9.2.2.5.2: PASS
+Audit check 9.2.2.5.5: PASS
+Audit check 9.2.2.5.6: SKIP: not enough order status transactions to be statistically significant
+Audit check 9.2.2.5.3: PASS
+Audit check 9.2.2.5.4: PASS
+
+_elapsed_______tpmC____efc__avg(ms)__p50(ms)__p90(ms)__p95(ms)__p99(ms)_pMax(ms)
+  600.0s     9270.5  96.1%    358.4     88.1    352.3   1476.4   6442.5  24696.1
+
+Advanced Cluster: warehouses and concurrency 1000
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__total
+  600.0s       33           5750            9.6  15775.7  18253.6  23622.3  25769.8  26843.5  delivery
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__total
+  600.0s       33          56314           93.9  24580.0  25769.8  34359.7  42949.7 103079.2  newOrder
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__total
+  600.0s       33           5773            9.6  16343.7  18253.6  24696.1  26843.5  28991.0  orderStatus
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__total
+  600.0s       33          57377           95.6  24643.6  25769.8  42949.7 103079.2 103079.2  payment
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__total
+  600.0s       33           5728            9.5  20704.7  22548.6  31138.5  33286.0  42949.7  stockLevel
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__result
+  600.0s       33         130942          218.2  23688.6  24696.1  36507.2  60129.5 103079.2
+Audit check 9.2.1.7: SKIP: not enough delivery transactions to be statistically significant
+Audit check 9.2.2.5.1: PASS
+Audit check 9.2.2.5.2: PASS
+Audit check 9.2.2.5.5: PASS
+Audit check 9.2.2.5.6: SKIP: not enough order status transactions to be statistically significant
+Audit check 9.2.2.5.3: FAIL: no remote order-lines for warehouse 60
+Audit check 9.2.2.5.4: SKIP: insufficient data for remote warehouse distribution check
+
+_elapsed_______tpmC____efc__avg(ms)__p50(ms)__p90(ms)__p95(ms)__p99(ms)_pMax(ms)
+  600.0s     5631.3  43.8%  24580.0  25769.8  31138.5  34359.7  42949.7 103079.2
+
+Advanced Cluster: warehouses and concurrency 1250
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__total
+  600.0s        0           6737           11.2  18539.6  20401.1  22548.6  24696.1  31138.5  delivery
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__total
+  600.0s        0          66240          110.4  31328.3  31138.5  42949.7  53687.1 103079.2  newOrder
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__total
+  600.0s        0           6753           11.3  19826.3  21474.8  26843.5  31138.5  33286.0  orderStatus
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__total
+  600.0s        0          67229          112.0  24699.5  21474.8  45097.2  60129.5 103079.2  payment
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__total
+  600.0s        0           6625           11.0  26413.1  26843.5  38654.7  38654.7  40802.2  stockLevel
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__result
+  600.0s        0         153584          256.0  27147.9  28991.0  42949.7  55834.6 103079.2
+Audit check 9.2.1.7: SKIP: not enough delivery transactions to be statistically significant
+Audit check 9.2.2.5.1: PASS
+Audit check 9.2.2.5.2: PASS
+Audit check 9.2.2.5.5: PASS
+Audit check 9.2.2.5.6: SKIP: not enough order status transactions to be statistically significant
+Audit check 9.2.2.5.3: FAIL: no remote order-lines for warehouse 439
+Audit check 9.2.2.5.4: SKIP: insufficient data for remote warehouse distribution check
+
+_elapsed_______tpmC____efc__avg(ms)__p50(ms)__p90(ms)__p95(ms)__p99(ms)_pMax(ms)
+  600.0s     6623.9  41.2%  31328.3  31138.5  38654.7  42949.7  53687.1 103079.2
+
+
+I250611 21:54:13.842092 1 workload/cli/run.go:649  [-] 1  random seed: 11614118161867530744
+I250611 21:54:13.842228 1 workload/cli/run.go:460  [-] 2  creating load generator...
+Max Total connections 3000 Max connections per pool 1500
+Initializing 3000 connections...
+Initializing 0 idle connections...
+Initializing 15000 workers and preparing statements...
+I250611 21:54:17.402071 1 workload/cli/run.go:499  [-] 3  creating load generator... done (took 3.559841451s)
+_elapsed___errors__ops/sec(inst)___ops/sec(cum)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)
+   10.0s        0            8.0           10.9   3892.3   8053.1   8053.1   8053.1 delivery
+   10.0s        0            0.0            0.0      0.0      0.0      0.0      0.0 newOrder
+   10.0s        0           48.3           65.5   2013.3   5637.1   7516.2   7784.6 orderStatus
+   10.0s        0           16.3           22.1   5637.1   6979.3   6979.3   6979.3 payment
+   10.0s        0           28.6           38.8   5368.7   7784.6   8053.1   8053.1 stockLevel
+   20.0s        0           47.4           29.1  10737.4  15569.3  16643.0  18253.6 delivery
+   20.0s        0            0.0            0.0      0.0      0.0      0.0      0.0 newOrder
+   20.0s        0            0.0           32.7      0.0      0.0      0.0      0.0 orderStatus
+   20.0s        0          261.6          141.9  11274.3  16643.0  17179.9  17179.9 payment
+   20.0s        0           24.2           31.5   9663.7  12348.0  12348.0  12884.9 stockLevel
+
+
+
+Self Hosted: warehouses and concurrency 750
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__total
+  600.0s        0           9540           15.9    376.1    151.0    604.0   8053.1   9663.7  delivery
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__total
+  600.0s        0          93255          155.4    204.1     67.1    285.2   4563.4   7784.6  newOrder
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__total
+  600.0s        0           9542           15.9     53.8     16.8    121.6    570.4   5368.7  orderStatus
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__total
+  600.0s        0          95187          158.6    282.1     37.7    285.2   7784.6   9663.7  payment
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__total
+  600.0s        0           9541           15.9     79.1     37.7    176.2    872.4   5637.1  stockLevel
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__result
+  600.0s        0         217065          361.8    233.8     54.5    318.8   6174.0   9663.7
+Audit check 9.2.1.7: SKIP: not enough delivery transactions to be statistically significant
+Audit check 9.2.2.5.1: PASS
+Audit check 9.2.2.5.2: PASS
+Audit check 9.2.2.5.5: PASS
+Audit check 9.2.2.5.6: SKIP: not enough order status transactions to be statistically significant
+Audit check 9.2.2.5.3: PASS
+Audit check 9.2.2.5.4: PASS
+
+_elapsed_______tpmC____efc__avg(ms)__p50(ms)__p90(ms)__p95(ms)__p99(ms)_pMax(ms)
+  600.0s     9325.3  96.7%    204.1     67.1    167.8    285.2   4563.4   7784.6
+
+
+Self Hosted: warehouses and concurrency 1000
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__total
+  600.0s        0          11253           18.8   2630.1    738.2  10737.4  21474.8  73014.4  delivery
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__total
+  600.0s        0         111241          185.4   3094.8    402.7  12348.0  47244.6 103079.2  newOrder
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__total
+  600.0s        0          11341           18.9   1202.3    113.2   6710.9  11274.3  36507.2  orderStatus
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__total
+  600.0s        0         113859          189.8   2447.4    260.0  11811.2  30064.8 103079.2  payment
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__total
+  600.0s        0          11291           18.8   1334.6    121.6   7516.2  12348.0  42949.7  stockLevel
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__result
+  600.0s        0         258985          431.6   2630.4    335.5  11811.2  34359.7 103079.2
+Audit check 9.2.1.7: PASS
+Audit check 9.2.2.5.1: PASS
+Audit check 9.2.2.5.2: PASS
+Audit check 9.2.2.5.5: PASS
+Audit check 9.2.2.5.6: PASS
+Audit check 9.2.2.5.3: PASS
+Audit check 9.2.2.5.4: PASS
+
+_elapsed_______tpmC____efc__avg(ms)__p50(ms)__p90(ms)__p95(ms)__p99(ms)_pMax(ms)
+  600.0s    11123.9  86.5%   3094.8    402.7   8053.1  12348.0  47244.6 103079.2
+
+
+Advanced concurrency and warehouses at 800
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__total
+  600.0s        0           9975           16.6    686.1    251.7   3489.7   8053.1  16106.1  delivery
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__total
+  600.0s        0          97919          163.2    489.1    117.4   1140.9  11811.2  23622.3  newOrder
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__total
+  600.0s        0          10073           16.8    209.8     37.7    704.6   5368.7  13421.8  orderStatus
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__total
+  600.0s        0          99962          166.6    561.2     79.7   3355.4  11811.2  22548.6  payment
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__total
+  600.0s        0          10042           16.7    474.8    117.4   2080.4   6174.0  15569.3  stockLevel
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__result
+  600.0s        0         227971          379.9    516.4    100.7   1811.9  11274.3  23622.3
+Audit check 9.2.1.7: SKIP: not enough delivery transactions to be statistically significant
+Audit check 9.2.2.5.1: PASS
+Audit check 9.2.2.5.2: PASS
+Audit check 9.2.2.5.5: PASS
+Audit check 9.2.2.5.6: PASS
+Audit check 9.2.2.5.3: PASS
+Audit check 9.2.2.5.4: PASS
+
+_elapsed_______tpmC____efc__avg(ms)__p50(ms)__p90(ms)__p95(ms)__p99(ms)_pMax(ms)
+  600.0s     9791.6  95.2%    489.1    117.4    486.5   1140.9  11811.2  23622.3
+
+Self-Hosted concurrency and warehouses at 800
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__total
+  600.0s        0          10037           16.7    511.1    209.7   1610.6   9126.8  12884.9  delivery
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__total
+  600.0s        0          98971          164.9    305.0    109.1    671.1   5637.1  13421.8  newOrder
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__total
+  600.0s        0          10089           16.8     85.4     26.2    318.8    838.9   8321.5  orderStatus
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__total
+  600.0s        0         100837          168.1    356.7     62.9   1040.2   9126.8  11811.2  payment
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__total
+  600.0s        0          10035           16.7    124.4     46.1    402.7   1677.7   7516.2  stockLevel
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__result
+  600.0s        0         229969          383.3    319.2     83.9    738.2   7247.8  13421.8
+Audit check 9.2.1.7: PASS
+Audit check 9.2.2.5.1: PASS
+Audit check 9.2.2.5.2: PASS
+Audit check 9.2.2.5.5: PASS
+Audit check 9.2.2.5.6: PASS
+Audit check 9.2.2.5.3: PASS
+Audit check 9.2.2.5.4: PASS
+
+_elapsed_______tpmC____efc__avg(ms)__p50(ms)__p90(ms)__p95(ms)__p99(ms)_pMax(ms)
+  600.0s     9896.7  96.2%    305.0    109.1    369.1    671.1   5637.1  13421.8
+
+
+Advanced concurrency and warehouses at 850
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__total
+  600.0s        0          10501           17.5    761.0    453.0   2415.9   6979.3  13421.8  delivery
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__total
+  600.0s        0         104250          173.7    507.2    218.1   1275.1   7516.2  20401.1  newOrder
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__total
+  600.0s        0          10594           17.7    336.6     71.3   1879.0   4295.0   8589.9  orderStatus
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__total
+  600.0s        0         105986          176.6    576.7    142.6   2550.1  11274.3  14495.5  payment
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__total
+  600.0s        0          10546           17.6    516.4    142.6   2684.4   5905.6  11811.2  stockLevel
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__result
+  600.0s        0         241877          403.1    541.6    176.2   1744.8   9126.8  20401.1
+Audit check 9.2.1.7: PASS
+Audit check 9.2.2.5.1: PASS
+Audit check 9.2.2.5.2: PASS
+Audit check 9.2.2.5.5: PASS
+Audit check 9.2.2.5.6: PASS
+Audit check 9.2.2.5.3: PASS
+Audit check 9.2.2.5.4: PASS
+
+_elapsed_______tpmC____efc__avg(ms)__p50(ms)__p90(ms)__p95(ms)__p99(ms)_pMax(ms)
+  600.0s    10424.5  95.4%    507.2    218.1    805.3   1275.1   7516.2  20401.1
+
+
+Self-Hosted concurrency and warehouses at 850
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__total
+  600.0s        0          10661           17.8    615.7    260.0   2080.4  10737.4  16643.0  delivery
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__total
+  600.0s        0         104803          174.7    398.6    134.2    738.2   8053.1  20401.1  newOrder
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__total
+  600.0s        0          10663           17.8    125.5     32.5    453.0   3087.0  11811.2  orderStatus
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__total
+  600.0s        0         106950          178.2    493.8     79.7   2281.7  11811.2  28991.0  payment
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__total
+  600.0s        0          10624           17.7    161.2     50.3    570.4   3221.2  15032.4  stockLevel
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__result
+  600.0s        0         243701          406.2    427.6    100.7    973.1  10200.5  28991.0
+Audit check 9.2.1.7: PASS
+Audit check 9.2.2.5.1: PASS
+Audit check 9.2.2.5.2: PASS
+Audit check 9.2.2.5.5: PASS
+Audit check 9.2.2.5.6: PASS
+Audit check 9.2.2.5.3: PASS
+Audit check 9.2.2.5.4: PASS
+
+_elapsed_______tpmC____efc__avg(ms)__p50(ms)__p90(ms)__p95(ms)__p99(ms)_pMax(ms)
+  600.0s    10479.9  95.9%    398.6    134.2    369.1    738.2   8053.1  20401.1
+
+Advanced concurrency and warehouses at 900
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__total
+  600.0s        0          11146           18.6   1129.7    637.5   3758.1  11274.3  17179.9  delivery
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__total
+  600.0s        0         109077          181.8    791.4    302.0   2550.1   9663.7  40802.2  newOrder
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__total
+  600.0s        0          11161           18.6    414.2     92.3   1811.9   6174.0  11811.2  orderStatus
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__total
+  600.0s        0         110959          184.9    855.9    209.7   5368.7  12884.9  33286.0  payment
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__total
+  600.0s        0          10994           18.3    685.9    192.9   3355.4   8053.1  15032.4  stockLevel
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__result
+  600.0s        0         253337          422.2    813.4    251.7   3355.4  12348.0  40802.2
+Audit check 9.2.1.7: PASS
+Audit check 9.2.2.5.1: PASS
+Audit check 9.2.2.5.2: PASS
+Audit check 9.2.2.5.5: PASS
+Audit check 9.2.2.5.6: PASS
+Audit check 9.2.2.5.3: PASS
+Audit check 9.2.2.5.4: PASS
+
+_elapsed_______tpmC____efc__avg(ms)__p50(ms)__p90(ms)__p95(ms)__p99(ms)_pMax(ms)
+  600.0s    10907.2  94.2%    791.4    302.0   1275.1   2550.1   9663.7  40802.2
+
+Self-Hosted concurrency and warehouses at 900
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__total
+  600.0s        0          11264           18.8    673.1    369.1   2013.3   9126.8  17179.9  delivery
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__total
+  600.0s        0         110963          184.9    441.1    209.7   1006.6   6442.5  23622.3  newOrder
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__total
+  600.0s        0          11321           18.9    124.8     48.2    436.2   1744.8  10737.4  orderStatus
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__total
+  600.0s        0         113056          188.4    448.1    130.0   1811.9  10200.5  19327.4  payment
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__total
+  600.0s        0          11286           18.8    179.7     67.1    570.4   3087.0  13958.6  stockLevel
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__result
+  600.0s        0         257890          429.8    429.0    159.4   1140.9   7516.2  23622.3
+Audit check 9.2.1.7: PASS
+Audit check 9.2.2.5.1: PASS
+Audit check 9.2.2.5.2: PASS
+Audit check 9.2.2.5.5: PASS
+Audit check 9.2.2.5.6: PASS
+Audit check 9.2.2.5.3: PASS
+Audit check 9.2.2.5.4: PASS
+
+_elapsed_______tpmC____efc__avg(ms)__p50(ms)__p90(ms)__p95(ms)__p99(ms)_pMax(ms)
+  600.0s    11095.9  95.9%    441.1    209.7    536.9   1006.6   6442.5  23622.3
+
+
+
+Advanced concurrency and warehouses at 950
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__total
+  600.0s        0           6298           10.5  13958.7  13421.8  31138.5  34359.7 103079.2  delivery
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__total
+  600.0s        0          61724          102.9  17069.0  17179.9  32212.3  38654.7  81604.4  newOrder
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__total
+  600.0s        0           6355           10.6  12395.5  12884.9  27917.3  34359.7  38654.7  orderStatus
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__total
+  600.0s        0          64503          107.5  19508.3  18253.6  40802.2 103079.2 103079.2  payment
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__total
+  600.0s        0           6211           10.4  13266.7  12884.9  28991.0  34359.7  42949.7  stockLevel
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__result
+  600.0s        0         145091          241.8  17651.0  16643.0  36507.2  90194.3 103079.2
+Audit check 9.2.1.7: SKIP: not enough delivery transactions to be statistically significant
+Audit check 9.2.2.5.1: PASS
+Audit check 9.2.2.5.2: PASS
+Audit check 9.2.2.5.5: PASS
+Audit check 9.2.2.5.6: SKIP: not enough order status transactions to be statistically significant
+Audit check 9.2.2.5.3: FAIL: no remote order-lines for warehouse 553
+Audit check 9.2.2.5.4: SKIP: insufficient data for remote warehouse distribution check
+
+_elapsed_______tpmC____efc__avg(ms)__p50(ms)__p90(ms)__p95(ms)__p99(ms)_pMax(ms)
+  600.0s     6172.0  50.5%  17069.0  17179.9  28991.0  32212.3  38654.7  81604.4
+
+
+Self-Hosted concurrency and warehouses at 950
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__total
+  600.0s        0           8556           14.3   6381.1   3758.1  28991.0  49392.1  64424.5  delivery
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__total
+  600.0s        0          85704          142.8   9622.4   4831.8  40802.2  77309.4 103079.2  newOrder
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__total
+  600.0s        0           8699           14.5   3417.6   2147.5  10200.5  23622.3  38654.7  orderStatus
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__total
+  600.0s        0          86520          144.2   7462.5   4295.0  25769.8  40802.2 103079.2  payment
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__total
+  600.0s        0           8607           14.3   3964.4   2684.4  11811.2  23622.3  40802.2  stockLevel
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__result
+  600.0s        0         198086          330.1   8020.7   4295.0  30064.8  62277.0 103079.2
+Audit check 9.2.1.7: SKIP: not enough delivery transactions to be statistically significant
+Audit check 9.2.2.5.1: PASS
+Audit check 9.2.2.5.2: PASS
+Audit check 9.2.2.5.5: PASS
+Audit check 9.2.2.5.6: SKIP: not enough order status transactions to be statistically significant
+Audit check 9.2.2.5.3: FAIL: no remote order-lines for warehouse 472
+Audit check 9.2.2.5.4: SKIP: insufficient data for remote warehouse distribution check
+
+_elapsed_______tpmC____efc__avg(ms)__p50(ms)__p90(ms)__p95(ms)__p99(ms)_pMax(ms)
+  600.0s     8570.0  70.1%   9622.4   4831.8  24696.1  40802.2  77309.4 103079.2
