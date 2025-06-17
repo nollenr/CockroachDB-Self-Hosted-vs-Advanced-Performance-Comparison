@@ -22,7 +22,7 @@ Compare a self-hosted CockroachDB cluster with an Advanced Cockroach Cloud clust
 
 ---
 
-## Self Hosted Configuration
+## Self Hosted AWS Configuration
 |Configuration|Value|
 |----|-----|
 |Cloud|AWS|
@@ -33,7 +33,7 @@ Compare a self-hosted CockroachDB cluster with an Advanced Cockroach Cloud clust
 |HAProxy|m6a.xlarge|
 |App|m6a.xlarge|
 
-## Advanced Cluster Configuration
+## Advanced AWS Cluster Configuration
 |Configuration|Value|
 |-----|------|
 |Cloud|AWS|
@@ -43,24 +43,38 @@ Compare a self-hosted CockroachDB cluster with an Advanced Cockroach Cloud clust
 |Compute|4 vCPU, 16 GiB RAM|
 |Storage|600 GiB disk, 9000 IOPS|
 
+## Advanced Azure Cluster Configuration
+|Configuration|Value|
+|-----|------|
+|Cloud|Azure|
+|Plan type|Advanced|
+|Region|us-westus2|
+|Nodes|3/3 Live|
+|Compute|4 vCPU, 16 GiB RAM|
+|Storage|512 GiB disk, ? IOPS|
 ---
 ## 1-Hour Stability Test
 
-| Metric        | Self-Hosted       | Advanced Cluster   |
-|---------------|-------------------|---------------------|
-| Concurrency   | 500               | 500                 |
-| Warehouses    | 500               | 500                 |
-| Duration      | 3600s (1 hour)    | 3600s (1 hour)      |
-| tpmC          | 6287.4            | 6285.6              |
-| Efficiency    | 97.8%             | 97.8%               |
-| Avg Latency   | 55.6 ms           | 71.9 ms             |
-| p95 Latency   | 67.1 ms           | 88.1 ms             |
-| p99 Latency   | 134.2 ms          | 234.9 ms            |
-| Max Latency   | 4563.4 ms         | 7784.6 ms           |
-| Errors        | 0                 | 0                   |
-| Audit Status  | ✅ PASS            | ✅ PASS              |
+| Metric           | Self-Hosted AWS | Advanced Cluster AWS | Advanced Cluster Azure | Notable Insights                                                    |
+| ---------------- | --------------- | -------------------- | ---------------------- | ------------------------------------------------------------------- |
+| **Concurrency**  | 500             | 500                  | 500                    | Identical configuration across all environments.                    |
+| **Warehouses**   | 500             | 500                  | 500                    | Benchmark load was evenly matched.                                  |
+| **Duration**     | 3600s (1h)      | 3600s (1h)           | 3600s (1h)             | Full 1-hour sustained test on all setups.                           |
+| **tpmC**         | 6287.4          | 6285.6               | 6265.5                 | <1% variance; throughput was nearly identical.                      |
+| **Efficiency**   | 97.8%           | 97.8%                | 97.4%                  | Slight dip in Azure, but all clusters were highly efficient.        |
+| **Avg Latency**  | 55.6 ms         | 71.9 ms              | 125.4 ms               | Self-hosted shows best average latency; Azure significantly higher. |
+| **p95 Latency**  | 67.1 ms         | 88.1 ms              | 285.2 ms               | Tail latency on Azure was \~4× worse than self-hosted.              |
+| **p99 Latency**  | 134.2 ms        | 234.9 ms             | 838.9 ms               | Extreme tail latency on Azure; 6× higher than self-hosted.          |
+| **Max Latency**  | 4563.4 ms       | 7784.6 ms            | 10737.4 ms             | Azure had highest outlier latency by a large margin.                |
+| **Errors**       | 0               | 0                    | 0                      | All tests ran error-free—no dropped or failed transactions.         |
+| **Audit Status** | ✅ PASS          | ✅ PASS               | ✅ PASS                 | Strong transactional correctness on all clusters.                   |
 
-> Both clusters demonstrated stable, sustained throughput with excellent audit compliance. Self-hosted delivered slightly better latency at the same efficiency level.
+
+Self-Hosted AWS is the latency leader at all percentiles with near-identical throughput to managed options.
+
+Advanced Cluster AWS offers a solid balance—latency is moderately higher, but still within acceptable limits.
+
+Advanced Cluster Azure delivers strong throughput and reliability but suffers from notable tail and outlier latency, potentially due to infrastructure or network effects in the Azure environment.
 
 ---
 
@@ -75,15 +89,17 @@ Compare a self-hosted CockroachDB cluster with an Advanced Cockroach Cloud clust
 
 ## Head-to-Head Comparison @ 850 Concurrency
 
-| Metric       | Self-Hosted  | Advanced Cluster | Winner      |
-| ------------ | ------------ | ---------------- | ----------- |
-| tpmC         | 10,479.9     | 10,424.5         | Self-Hosted |
-| Efficiency   | 95.9%        | 95.4%            | Self-Hosted |
-| Avg Latency  | 398.6 ms     | 507.2 ms         | Self-Hosted |
-| p95 Latency  | 738.2 ms     | 1275.1 ms        | Self-Hosted |
-| p99 Latency  | 8053.1 ms    | 7516.2 ms        | Advanced    |
-| Max Latency  | 28.9 s       | 20.4 s           | Advanced    |
-| Audit Status | ✅ All Passed | ✅ All Passed     | Tie         |
+| Metric           | Self-Hosted  | Advanced Cluster AWS | Advanced Cluster Azure | Winner            | Notable Insights                                                                               |
+| ---------------- | ------------ | -------------------- | ---------------------- | ----------------- | ---------------------------------------------------------------------------------------------- |
+| **tpmC**         | 10,479.9     | 10,424.5             | 4577.8                 | Self-Hosted       | Azure delivered less than half the throughput of the other two setups.                         |
+| **Efficiency**   | 95.9%        | 95.4%                | 41.9%                  | Self-Hosted       | Azure's efficiency plummeted—potential signs of severe queuing, saturation, or node imbalance. |
+| **Avg Latency**  | 398.6 ms     | 507.2 ms             | 28,032.8 ms            | Self-Hosted       | Azure’s average latency was **\~70× higher**, indicating deep systemic delay.                  |
+| **p95 Latency**  | 738.2 ms     | 1275.1 ms            | 36,507.2 ms            | Self-Hosted       | Azure’s p95 latency = **\~29× higher** than self-hosted.                                       |
+| **p99 Latency**  | 8053.1 ms    | 7516.2 ms            | 49,392.1 ms            | Advanced AWS      | AWS Advanced handles tail better than Self-Hosted here; Azure is far behind.                   |
+| **Max Latency**  | 28.9 s       | 20.4 s               | 103.1 s                | Advanced AWS      | Azure hits 100+ second outliers—by far the worst spike behavior.                               |
+| **Audit Status** | ✅ All Passed | ✅ All Passed         | ❌ Partial / Fails      | Self-Hosted / AWS | Azure failed at least one audit check and skipped others due to insufficient valid data.       |
+
+At 850 concurrency, Azure Advanced Cluster is not production-ready without tuning or infrastructure changes. Meanwhile, Self-Hosted remains the strongest performer, especially for latency-sensitive workloads, while Advanced AWS provides a solid managed alternative with good tail behavior.
 
 ---
 
